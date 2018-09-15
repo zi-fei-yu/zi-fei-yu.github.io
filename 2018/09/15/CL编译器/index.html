@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: -1 -hexo学习 | Hexo</title>
+  <title>CL编译器 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="深林人不知，明月来相照。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/tags/1-hexo学习/index.html">
+  <meta name="description" content="CL.exe 的命令行编译断断续续接触了几次,每次都忘,每次都重新查。每次都搞不清楚语法，尤其是传给linker的参数。因为网上所有的文章都是一样的，都是详细的参数列表，都是没有实例。为了和大众保持一致，我在下面也copy一个详细的参数列表—只是在前面加几个实例 cl.exe test.cpp /EHsc /I&amp;quot;C:/OpenCV2.0/include/opencv/&amp;quot;">
+<meta name="keywords" content="转载非原创">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CL编译器">
+<meta property="og:url" content="http://yoursite.com/2018/09/15/CL编译器/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="深林人不知，明月来相照。">
+<meta property="og:description" content="CL.exe 的命令行编译断断续续接触了几次,每次都忘,每次都重新查。每次都搞不清楚语法，尤其是传给linker的参数。因为网上所有的文章都是一样的，都是详细的参数列表，都是没有实例。为了和大众保持一致，我在下面也copy一个详细的参数列表—只是在前面加几个实例 cl.exe test.cpp /EHsc /I&amp;quot;C:/OpenCV2.0/include/opencv/&amp;quot;">
 <meta property="og:locale" content="中文简体">
+<meta property="og:updated_time" content="2018-09-15T02:47:29.746Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="深林人不知，明月来相照。">
+<meta name="twitter:title" content="CL编译器">
+<meta name="twitter:description" content="CL.exe 的命令行编译断断续续接触了几次,每次都忘,每次都重新查。每次都搞不清楚语法，尤其是传给linker的参数。因为网上所有的文章都是一样的，都是详细的参数列表，都是没有实例。为了和大众保持一致，我在下面也copy一个详细的参数列表—只是在前面加几个实例 cl.exe test.cpp /EHsc /I&amp;quot;C:/OpenCV2.0/include/opencv/&amp;quot;">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -157,71 +159,220 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-CL编译器" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/08/hexo-教程/" class="archive-article-date">
-  	<time datetime="2018-09-08T08:46:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-08</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/08/hexo-教程/">hexo 教程</a>
+    <h1 class="article-title" itemprop="name">
+      CL编译器
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/09/15/CL编译器/" class="archive-article-date">
+  	<time datetime="2018-09-15T02:01:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p> 　　CL.exe 的命令行编译断断续续接触了几次,每次都忘,每次都重新查。每次都搞不清楚语法，尤其是传给linker的参数。因为网上所有的文章都是一样的，都是详细的参数列表，都是没有实例。为了和大众保持一致，我在下面也copy一个详细的参数列表—只是在前面加几个实例</p>
+<pre><code>cl.exe test.cpp /EHsc /I&quot;C:/OpenCV2.0/include/opencv/&quot; cv200.lib highgui200.lib cxcore200.lib /link /LIBPATH:&quot;C:/OpenCV2.0/vs2008/lib&quot;
+</code></pre><p>　　/LIBPATH小写也可以/libpath</p>
+<p>　　网上找到的“经典用法”</p>
+<pre><code>cl *.cpp /G7 /MD /Ox /Ot /W3 /c /EHsc /I&quot;G:/Visual C++/VC98/PlatformSDK/Include&quot;
+
+link *.obj rc.res /LIBPATH:&quot;G:/Visual C++/lib&quot; /SUBSYSTEM:WINDOWS /MACHINE:X86 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib OpenGL32.Lib
+</code></pre><p>　　MFC 开发如下：编译源代码:</p>
+<pre><code>cl *.cpp /Ox /Ot /G7 /D &quot;WIN32&quot; /D &quot;_WINDOWS&quot; /D &quot;_AFXDLL&quot; /EHsc /MD /arch:SSE2 /W3 /c
+</code></pre><p>　　资源编译 :　rc /l 0x804 winmfc.rc</p>
+<p> 　链接 :</p>
+<pre><code>link *.obj WinMFC.res /out:WinMFC.exe /OPT:NOWIN98 /SUBSYSTEM:WINDOWS /MACHINE:X86
+</code></pre><p>===================================</p>
+<p>　　CL命令行使用下列语法：<br>    <strong>CL   [option…]   file…   [option   |   file]…   [lib…]   [@command-file]   [/link   link-opt…] </strong><br>　　下表说明CL命令的输入项意义</p>
+<p>　　<strong>option</strong> 一个或多个CL选项。请注意，所有选项都应用于所有指定的源文件。选项是由一个正斜杠   (/)   或一个短划线(–)指定的。如果某个选项带有参数，则该选项的说明指定在选项和参数之间是否允许有空格。选项名（/HELP选项除外）区分大小写。有关更多信息，请参阅 CL选项的顺序。  </p>
+<p>　　<strong>file</strong>一个或多个源文件、.obj   文件或库的名称。CL编译源文件并将   .obj   文件和库的名称传递给链接器。有关更多信息，请参阅CL文件名语法。lib一个或多个库名。CL将这些名称传递给链接器。     </p>
+<p>　　<strong>command-file</strong>包含多个选项和文件名的文件。有关更多信息，请参阅CL命令文件。     </p>
+<p>　　<strong>link-opt</strong>一个或多个链接器选项。CL将这些选项传递给链接器。</p>
+<p>　　您可以指定任意数目的选项、文件名和库名，条件是命令行上的字符数不超过   1024，该限制是操作系统指定的。 </p>
+<p>　　编译器</p>
+<p>　　注意，所有编译器选项都区分大小写。若要编译但不链接，请使用/c。使用   NMAKE   生成输出文件。使用   BSCMAKE   支持类浏览。</p>
+<p>以下是一个完整的编译器选项分类列表。</p>
+<p>一、优化<br>  选项             作用<br>  /O1    创建小代码<br>  /O2    创建快速代码<br>  /Oa    假设没有别名<br>  /Ob    控制内联展开<br>  /Od    禁用优化<br>  /Og    使用全局优化<br>  /Oi    生成内部函数<br>  /Op    改善浮点数一致性<br>  /Os    代码大小优先<br>  /Ot    代码速度优先<br>  /Ow    假定在函数调用中使用别名<br>  /Ox    使用最大优化   (/Ob1gity   /Gs)<br>  /Oy    省略框架指针</p>
+<p>二、代码生成<br>  选项     作用<br>  /clr    启用C++ 的托管扩展并产生在公共语言运行库上运行的输出文件<br>  /EH    指定异常处理模型<br>  /G3    优化代码以优选386处理器。在Visual C++ 5.0中已经停用，编译器将忽略此选项<br>  /G4    优化代码以优选486处理器。在Visual C++ 5.0中已经停用，编译器将忽略此选项<br>  /G5    优化代码以优选Pentium<br>  /GB    与/G6等效；将 _M_IX86的值设置为600<br>  /Gd    使用<strong>cdecl 调用约定<br>  /Ge    激活堆栈探测<br>  /GF<br>  /GF    启用字符串池<br>  /GH    调用挂钩函数_penter<br>  /GH   调用挂钩函数_pexit<br>  /GL    启用全程序优化<br>  /Gm    启用最小重新生成<br>  /Gr    启用运行时类型信息(RTTI)<br>  /Gr    使用 </strong>fastcall 调用约定<br>  /GS    控制堆栈探测<br>  /GT    支持使用静态线程本地存储区分配的数据的纤程安全<br>  /GX    启用同步异常处理<br>  /Gy    启用函数级链接<br>  /GZ    使用   __stdcall   调用约定<br>  /MD    使用   MSVCRT.lib   创建多线程   DLL<br>  /MDd    使用   MSVCRTD.lib   创建调试多线程   DLL<br>  /ML    使用   LIBC.lib   创建单线程可执行文件<br>  /MLd    使用   LIBCD.lib   创建调试单线程可执行文件<br>  /MT    使用   LIBCMT.lib   创建多线程可执行文件<br>  /MTd    使用   LIBCMTD.lib   创建调试多线程可执行文件</p>
+<p>三、输出文件<br>  选项     作用<br>  /FA    创建列表文件<br>  /FA    设置列表文件名          </p>
+<p>  /Fd    重命名程序数据库文件<br>  /Fe    重命名可执行文件<br>  /Fm   创建映射文件<br>  /Fo    创建对象文件<br>  /Fp    指定预编译头文件名<br>  /FR<br>  /FR    生成浏览器文件<br>  /Fx    将插入的代码与源文件合并</p>
+<p>四、调试<br>  选项     作用<br>  /GS    缓冲区安全检查<br>  /GZ    与   /RTC1   相同<br>  /RTC    启用运行时错误检查<br>  /Wp64   检测   64   位可移植性问题<br>  /Yd    将完整的调试信息放在所有对象文件中<br>  /Yl    创建调试库时插入   PCH   引用<br>  /Z7    生成与   C   7.0   兼容的调试信息<br>  /Zd    生成行号<br>  /Zi    生成完整的调试信息</p>
+<p>五、预处理器<br>  选项     作用<br>  /AI    指定在解析传递到#using   指令的文件引用时搜索的目录<br>  /c     在预处理期间保留注释<br>  /D    定义常数和宏<br>  /E    将预处理器输出复制到标准输出<br>  /EP    将预处理器输出复制到标准输出<br>  /Fl    预处理指定的包含文件<br>  /FU    强制使用文件名，就像它已被传递到#using   指令一样<br>  /I     在目录中搜索包含文件<br>  /P    将预处理器输出写入文件<br>  /U    移除预定义宏<br>  /U    移除所有的预定义宏<br>  /X    忽略标准包含目录<br>  /ZI    将调试信息包含在与“编辑并继续”兼容的程序数据库中</p>
+<p>六、语言<br>  选项      作用<br>  /noBool    取消   C++   bool、true   和   false   关键字<br>  /vd     取消或启用隐藏的   vtordisp   类成员<br>  /vmb     对指向成员的指针使用最佳的基<br>  /vmg     对指向成员的指针使用完全一般性<br>  /vmm     声明多重继承<br>  /vms     声明单一继承<br>  /vmv     声明虚拟继承<br>  /Za     禁用语言扩展<br>  /Zc     在   /Ze   下指定标准行为<br>  /Ze     启用语言扩展<br>  /Zg     生成函数原型<br>  /Zl     从   .obj   文件中移除默认库名<br>  /Zpn     封装结构成员<br>  /Zs     只检查语法</p>
+<p>七、链接<br>  选项     作用<br>  /F    设置堆栈大小<br>  /LD    创建动态链接库<br>  /LDd    创建调试动态链接库<br>  /link    将指定的选项传递给   LINK<br>  /MD    使用   MSVCRT.lib   编译以创建多线程   DLL<br>  /MDd    使用   MSVCRTD.lib   编译以创建调试多线程   DLL<br>  /ML    使用   LIBC.lib   编译以创建单线程可执行文件<br>  /MLd    使用   LIBCD.lib   编译以创建调试单线程可执行文件<br>  /MT    使用   LIBCMT.lib   编译以创建多线程可执行文件<br>  /MTd    使用   LIBCMTD.lib   编译以创建调试多线程可执行文件</p>
+<p>八、预编译头<br>  选项     作用<br>  /Y-    忽略当前生成中的所有其他预编译头编译器选项<br>  /Yc    创建预编译头文件<br>  /Yd    将完整的调试信息放在所有对象文件中<br>  /Yu    在生成期间使用预编译头文件<br>  /YX    自动处理预编译头</p>
+<p>九、杂项<br>  选项     作用<br>  @    指定响应文件<br>  /?    列出编译器选项<br>  /c     编译但不链接<br>  /H    限制外部（公共）名称的长度<br>  /HELP    列出编译器选项<br>  /J     更改默认的   char   类型<br>  /NOLOGO   取消显示登录版权标志<br>  /QI0f    确保   Pentium   0F   指令没有问题<br>  /QIfdiv   FDIV、FPREM、FPTAN   和   FPATAN   指令有缺陷的   Intel   Pentium   微处理器的变通方法<br>  /QIfist   当需要从浮点类型转换为整型时取消   Helper   函数   _ftol   的调用    </p>
+<p>  /showIncludes   在编译期间显示所有包含文件的列表<br>  /Tc<br>  /Tc    指定   C   源文件<br>  /Tp<br>  /Tp    指定   C++   源文件<br>  /V    设置版本字符串<br>  /w    设置警告等级<br>  /w    禁用所有警告<br>  /Wall    启用所有警告，包括默认情况下禁用的警告<br>  /WL    在从命令行编译   C++   源代码时启用错误信息和警告消息的单行诊断<br>  /Zm    设置编译器的内存分配限制    </p>
+<p>===================================</p>
+<p>LINK 用法如下：<br>/ALIGN 指定每一节的对齐方式<br>/ALIGN 选项指定程序线性地址空间中每一节的对齐方式。number 参数以字节为单位，并且必须是 2 的幂。默认值是 4K (4096)。如果对齐方式产生无效的图像，则链接器发出警告。除非正在编写诸如设备驱动程序的应用程序，否则应不需要修改对齐方式。<br>/DLL 生成 DLL<br>/DRIVER 创建 Windows NT 核心模式驱动程序<br>/EXETYPE 生成虚拟设备驱动程序<br>/EXETYPE：DYNAMIC 创建动态加载的虚拟设备驱动程序。<br>/EXETYPE：DEV386 创建静态加载的虚拟设备驱动程序。这是 /EXETYPE 的默认值<br>/INCREMENTAL 控制增量链接<br>/LARGEADDRESSAWARE 通知编译器应用程序支持大于 2 GB 的地址<br>/LIBPATH 允许用户重写环境库路径<br>/LIBPATH：”e:/VC/LIB” /LIBPATH：”e:/DX/LIB”<br>/MACHINE 指定目标平台<br>` /MACHINE:{AM33|ARM|EBC|IA64|M32R|MIPS|MIPS16|MIPSFPU|MIPSFPU16|<br>MIPSR41XX|SH3|SH3DSP|SH4|SH5|THUMB|X86| X64/<em>8.0版本</em>/}<br>/MACHINE:X86<br>/NOENTRY 创建纯资源 DLL<br>创建纯资源 DLL 时要求 /NOENTRY 选项。<br>/OPT 控制 LINK 优化<br>如果生成仅运行于 Windows NT 或 Windows 2000 上的组件，则应使用 /OPT:NOWIN98。<br>/SUBSYSTEM: 指定子系统<br>{CONSOLE|EFI_APPLICATION|EFI_BOOT_SERVICE_DRIVER|<br>EFI_ROM|EFI_RUNTIME_DRIVER|NATIVE|POSIX|WINDOWS|<br>WINDOWSCE}[,#[.##]]<br>/OUT 指定输出文件名<br>/OUT:Hello.exe<br>(PS:使用markdown排版，shift+空格，可实现空格和段首缩进，在行末加两空格可实现分行，下次来个markdown使用小结）</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>果然你懂我<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">-1 -hexo学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">转载非原创</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/1//" class="article-tag-list-link color2">1</a>
-        		</li>
-      		
-		</ul>
-	</div>
+      
 
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/15/CL编译器/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/09/12/生活习惯/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">生活习惯</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -244,9 +395,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
